@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  PersonaEdad.h
- * Author:  widin
+ * Author:  widin Caiza, Christian
  * Modified: jueves, 27 de octubre de 2022 09:26:09 p. m.
  * Purpose: Declaration of the class PersonaEdad
  ***********************************************************************/
