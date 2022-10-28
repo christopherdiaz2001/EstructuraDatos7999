@@ -1,6 +1,6 @@
 /***********************************************************************
  * Module:  PersonaEdad.cpp
- * Author:  Diaz Christopher, 
+ * Author:  Diaz Christopher, Widinson Caiza
  * Modified: jueves, 27 de octubre de 2022 09:26:09 p. m.
  * Purpose: Implementation of the class PersonaEdad
  ***********************************************************************/
