@@ -1,3 +1,11 @@
+/*Universidad de las Fuerzas Armadas ESPE
+T�tulo: sobrecarga de operadores
+#Grupo
+Autor/es: Christopher Diaz, Caiza Widinson
+Fecha de creac�on: 31/10/2022
+Fecha de modificaci�n: 31/10/2022
+Ingenier�a en Software
+Estructura de Datos*/
 #include <iostream>
 using namespace std;
 #include <string>
