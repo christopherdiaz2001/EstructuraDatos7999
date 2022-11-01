@@ -1,10 +1,10 @@
 /*Universidad de las Fuerzas Armadas ESPE
-Título: Funcion Ingresar
+Tï¿½tulo: Funcion Ingresar
 #Grupo
 Autor/es: Christopher Diaz, Caiza Widinson
-Fecha de creacíon: 30/10/2022
-Fecha de modificación: 30/10/2022
-Ingeniería en Software
+Fecha de creacï¿½on: 30/10/2022
+Fecha de modificaciï¿½n: 30/10/2022
+Ingenierï¿½a en Software
 Estructura de Datos*/
 
 #include <iostream>
@@ -13,9 +13,10 @@ Estructura de Datos*/
 #include <conio.h>
 #include <stdio.h>
 
-#include "IngresoEnt.h"
-#include "IngresoChar.h"
-#include "IngresoFloat.h"
+#include "IngresoEnt.cpp"
+#include "IngresoChar.cpp"
+#include "IngresoFloat.cpp"
+
 
 int main() {
 	
