@@ -20,7 +20,7 @@ using namespace std;
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Simulacion::getIntereses(void)
+float Simulacion::getIntereses(void)
 {
    return intereses;
 }
@@ -33,7 +33,7 @@ int Simulacion::getIntereses(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Simulacion::setIntereses(int newIntereses)
+void Simulacion::setIntereses(float newIntereses)
 {
    intereses = newIntereses;
 }
@@ -44,7 +44,7 @@ void Simulacion::setIntereses(int newIntereses)
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Simulacion::getPrestamo(void)
+float Simulacion::getPrestamo(void)
 {
    return prestamo;
 }
@@ -57,7 +57,7 @@ int Simulacion::getPrestamo(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Simulacion::setPrestamo(int newPrestamo)
+void Simulacion::setPrestamo(float newPrestamo)
 {
    prestamo = newPrestamo;
 }
@@ -68,9 +68,9 @@ void Simulacion::setPrestamo(int newPrestamo)
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Simulacion::getMeses(void)
+int Simulacion::getPlazo(void)
 {
-   return meses;
+   return plazo;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -81,10 +81,11 @@ int Simulacion::getMeses(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Simulacion::setMeses(int newMeses)
+void Simulacion::setPlazo(int newPlazo)
 {
-   meses = newMeses;
+   plazo = newPlazo;
 }
+
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Simulacion::getInteresMensual()
@@ -190,13 +191,13 @@ void Simulacion::setSaldo(int newSaldo)
 
 Simulacion::Simulacion()
 {
-   this->intereses = 0;
-   this->prestamo = 0;
-   this->meses = 0;
-   this->interesMensual = 0;
-   this->cuota = 0;
-   this->amortizacion_ = 0;
-   this->saldo = 0;
+   this->intereses =intereses;
+   this->prestamo = prestamo;
+   this->plazo = plazo;
+   this->interesMensual = interesMensual;
+   this->cuota = cuota;
+   this->amortizacion_ = amortizacion_;
+   this->saldo = saldo;
 
 }
 
@@ -207,20 +208,34 @@ Simulacion::~Simulacion()
 }
 
 
-int Simulacion::calcular(int prestamo, int interes, int meses)
-{
-  Simulacion c,pres,mes,inter;
-   int interesMensual, cuota, amortizacion_, saldo;
-   interesMensual = (interes / 100) / 12;
-   cuota = prestamo * (interesMensual / (1 - pow((1 + interesMensual), -meses)));
-   amortizacion_ = cuota - (interesMensual * prestamo);
-   saldo = prestamo - amortizacion_;
-   cout << "Interes mensual: " << interesMensual << endl;
-   cout << "Cuota: " << cuota << endl;
-   cout << "Amortizacion: " << amortizacion_ << endl;
-   cout << "Saldo: " << saldo << endl;
-   return 0;
-   
-   
-   
+
+
+float Simulacion::calcularCuota(float prestamo, float interes, int plazo){
+    float cuota;
+    interes = interes / 100;
+    cuota = (prestamo * interes) / (1 - pow((1 + interes), -plazo));
+    return cuota;
+}
+
+//funcion para calcular el monto final
+float Simulacion::calcularMontoFinal(float prestamo, float cuota, float interes){
+    float montoFinal;
+    interes = interes / 100;
+    interes = prestamo * interes;
+    montoFinal = prestamo - (cuota - interes);
+    return montoFinal;
+}
+
+//funcion para mostrar la tabla de amortizacion
+void Simulacion::mostrarTablaAmortizacion(Simulacion a){
+    float cuota;
+    cuota = a.calcularCuota(a.getPrestamo(), a.getIntereses(), a.getPlazo());
+    for(int i = 0; i < a.getPlazo(); i++){
+        cout << "Mes: " << i+1 << " | Saldo inicial: " << a.getPrestamo() << " $" 
+                " | Cuota: " << cuota << 
+                " | Interes: " << a.getPrestamo() * (a.getIntereses() / 100) << 
+                " | Capital: " << cuota - (a.getPrestamo() * (a.getIntereses() / 100)) << 
+                " | Saldo final: " << a.calcularMontoFinal(a.getPrestamo(), cuota, a.getIntereses()) << " $ | \n" << endl;
+        a.setPrestamo(a.calcularMontoFinal(a.getPrestamo(), cuota, a.getIntereses()));
+    }
 }

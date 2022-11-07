@@ -6,20 +6,13 @@
 # include "Simulacion.cpp"
 using namespace std;
 int main(){
-    Simulacion simulacion;
-    int prestamo, interes, meses;
-    cout << "Ingrese el monto del prestamo: ";
-    cin >> prestamo;
-    cout << "Ingrese el interes: ";
-    cin >> interes;
-    cout << "Ingrese el numero de meses: ";
-    cin >> meses;
-    simulacion.calcular(prestamo, interes, meses);
-    cout << "El interes mensual es: " << simulacion.getInteresMensual() << endl;
-    cout << "La cuota es: " << simulacion.getCuota() << endl;
-    cout << "La amortizacion es: " << simulacion.getAmortizacion_() << endl;
-    cout << "El saldo es: " << simulacion.getSaldo() << endl;
-    system("pause");
+    Simulacion a;
+    a.setPrestamo(100000);
+    a.setIntereses(0.05);
+    a.setPlazo(12);
+    a.setCuota(a.calcularCuota(a.getPrestamo(), a.getIntereses(), a.getPlazo()));
+    a.setAmortizacion_(a.calcularMontoFinal(a.getPrestamo(), a.getCuota(), a.getIntereses()));
+    a.mostrarTablaAmortizacion(a);
     return 0;
     
 }

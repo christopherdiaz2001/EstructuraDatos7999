@@ -11,12 +11,12 @@
 class Simulacion
 {
 public:
-   int getIntereses(void);
-   void setIntereses(int newIntereses);
-   int getPrestamo(void);
-   void setPrestamo(int newPrestamo);
-   int getMeses(void);
-   void setMeses(int newMeses);
+   float getIntereses(void);
+   void setIntereses(float newIntereses);
+   float getPrestamo(void);
+   void setPrestamo(float newPrestamo);
+   int getPlazo(void);
+   void setPlazo(int newPlazo);
    int getInteresMensual(void);
    void setInteresMensual(int newInteresMensual);
    int getCuota(void);
@@ -27,13 +27,16 @@ public:
    void setSaldo(int newSaldo);
    Simulacion();
    ~Simulacion();
-   int calcular(int prestamo, int interes, int meses);
+   float calcularCuota(float prestamo, float interes, int plazo);
+   float calcularMontoFinal(float prestamo, float cuota, float interes);
+   void mostrarTablaAmortizacion(Simulacion a);
+
 
 protected:
 private:
-   int intereses;
-   int prestamo;
-   int meses;
+   float intereses;
+   float prestamo;
+   int plazo;
    int interesMensual;
    int cuota;
    int amortizacion_;
