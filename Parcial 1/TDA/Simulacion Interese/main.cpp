@@ -4,6 +4,7 @@
 # include <cmath>
 # include <cstdlib>
 # include "Simulacion.cpp"
+//# include "Fech.cpp"
 using namespace std;
 int main(){
     Simulacion a;
@@ -14,5 +15,4 @@ int main(){
     a.setAmortizacion_(a.calcularMontoFinal(a.getPrestamo(), a.getCuota(), a.getIntereses()));
     a.mostrarTablaAmortizacion(a);
     return 0;
-    
 }

@@ -5,7 +5,7 @@
 using namespace std;
 
 //funcion para añadir dias a la fecha actual
-tm *Fecha::añadirDias(int dias){
+tm *Fech::añadirDias(int dias){
     time_t t = time(0);
     tm *now = localtime(&t);
     now -> tm_mday += dias;
@@ -13,7 +13,7 @@ tm *Fecha::añadirDias(int dias){
     return now;
 }
 
-void Fecha::mostrarFechas(int plazos, int diaMes){
+void Fech::mostrarFechas(int plazos, int diaMes){
     
     int dias = plazos * 30;
     
