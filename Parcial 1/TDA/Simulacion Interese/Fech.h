@@ -7,7 +7,7 @@
 #include <iostream>
 #include <ctime>
 
-class Fecha{
+class Fech{
     public:
         tm *añadirDias(int dias);
         void mostrarFechas(int plazos, int diaMes);
