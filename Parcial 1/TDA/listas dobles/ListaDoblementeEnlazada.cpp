@@ -2,7 +2,7 @@
  * Module:  ListaDiblementeEnlazada.cpp
  * Author:  Diaz Christopher, Widinson Caiza
  * Modified: Martes, 22 de Noviembre de 2022 09:26:09 p. m.
- * Purpose: Declaration of the class PersonaEdad
+ * Purpose: Declaration of the class ListaDiblementeEnlazada
  ***********************************************************************/
 #include "ListaDoblementeEnlazada.h"
 #pragma once
